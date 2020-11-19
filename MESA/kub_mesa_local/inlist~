@@ -1,0 +1,67 @@
+! inlist_evolve
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name = "planet_2c_relaxsurfheat_15ME_0.1_9.0.mod"
+
+      save_model_when_terminate = .true.
+      save_model_filename = "p_evld_nullT_15ME_0.1_9.0.mod"
+
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+      
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+
+      pgstar_flag = .true.
+      pause_before_terminate = .true. ! lets you examine the final pgstar window when run terminates
+
+
+/ ! end of star_job namelist
+
+
+
+&controls
+
+        !mass loss
+        use_other_adjust_mdot = .true.
+        x_ctrl(1) = 0.1   !orbital separation in au (both EL and HD escape)
+	x_ctrl(2) = 0.1   !epsilon_EUV mass loss efficiency (EL escape)
+        x_ctrl(3) = 1.1   !r=R_EUV/R_p (EL escape)
+
+	! surface heating
+	!column_depth_for_irradiation = 3.d2 !cm^2/g
+        !irradiation_flux = 1.36d8! !erg/cm^2/s ! day side flux, stellar irradiance incident on planet
+        use_other_energy = .true. !if false then uncomment two previous strings
+
+	! when to stop
+	max_age = 5.0d9
+	max_model_number = 4000	! don't let it go on and on if run stuck
+	Teff_lower_limit = 10
+	T_mix_limit = 0
+
+	logQ_limit = 1.0d3!mod
+        varcontrol_target = 2d-4
+ 	mesh_delta_coeff = 0.5
+
+
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 10
+
+	star_history_name = "history_nullT_15ME_0.1_9.0"
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+       read_extra_pgstar_inlist1 = .true.
+       extra_pgstar_inlist1_name = 'inlist_pgstar' 
+
+         
+/ ! end of pgstar namelist

@@ -1,0 +1,136 @@
+! inlist_evolve
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name =  "planet_2c_relaxsurfheat_15ME_0.1_7.6.mod" !!"planet_12_evolve2_15ME_0.1_9.0.mod"
+
+      save_model_when_terminate = .true.
+      save_model_filename = "plevd_EL_Tconst_15ME_0.1_9.0_t.mod"
+
+      !change_initial_net = .true.      
+      !new_net_name = 'basic.net'
+
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+
+      !set_initial_dt = .true.
+      !years_for_initial_dt = 1.d-6
+
+      !!set_tau_factor = .true. ! change tau_factor without reconverging.
+      !!set_to_this_tau_factor = 100
+      
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+
+      !change_v_flag = .true. ! needed for good rel_run_E_err
+      !new_v_flag = .true.
+
+      !change_conv_vel_flag = .true.
+      !change_initial_conv_vel_flag = .true.
+      !new_conv_vel_flag = .true.
+
+      set_initial_age = .false.
+      initial_age = 5.0e6
+
+      !set_initial_cumulative_energy_error = .true.
+      !new_cumulative_energy_error = 0d0
+
+      pgstar_flag = .true.
+      pause_before_terminate = .true. ! lets you examine the final pgstar window when run terminates
+
+      profile_starting_model = .false.
+      profile_model_number = 940
+
+      !remove_center_by_radius_cm = 1.9d9
+      !remove_initial_surface_by_mass_gm = 9.429789d+28
+     
+/ ! end of star_job namelist
+
+
+
+&controls
+
+        !use_gold_tolerances = .true.
+        !use_eosDT2 = .true.
+        !use_eosELM = .true.
+
+        !mass loss
+        use_other_adjust_mdot = .true.
+        x_ctrl(1) = 0.1   !orbital separation in au (both EL and HD escape)
+	x_ctrl(2) = 0.15   !epsilon_EUV mass loss efficiency (EL escape)
+        x_ctrl(3) = 1.1   !r=R_EUV/R_p (EL escape)
+        !for rogers heating model
+        x_ctrl(4) = 1d10 ! core heat capacity  eps=erg/g/K
+        x_ctrl(5) = 1.0 ! fraction of core mass in "chondrite-like" rocky material
+
+        ! log10 max timestep in yr
+        x_ctrl(7) = 8.0
+
+	! surface heating
+	column_depth_for_irradiation = 3.d2 !cm^2/g  3
+        irradiation_flux = 1.36d8! !erg/cm^2/s ! day side flux, stellar irradiance incident on planet (1 solar mass, 0.1 au)
+        use_other_energy = .false. !if true/false then comment/uncomment ___two previous strings___
+
+        
+        !max_logT_for_mlt = 3.6 !3.6
+        !use_dedt_form_of_energy_eqn = .true.
+        
+        !use_flux_limiting_with_dPrad_dm_form = .true.
+        !mlt_gradT_fraction = 0.2
+        !eps_grav_factor = 1.
+        
+	! when to stop
+	max_age = 5.0d9
+	max_model_number = 6000	! don't let it go on and on if run stuck
+	Teff_lower_limit = 10
+	T_mix_limit = 0
+
+	logQ_limit = 1.0d3!mod
+        !log_center_density_limit = 0 !12d0
+
+
+        varcontrol_target = 1d-4 !2
+ 	mesh_delta_coeff = 1. !0.5
+        !mesh_delta_coeff_for_highT = 1.0d0
+        !!use_Type2_opacities = .false.
+
+        !!atm_option = 'table' !this seems to be the one used in the new paper
+        !!atm_table = 'tau_100'
+
+        atm_option = 'irradiated_grey'
+        atm_irradiated_opacity = 'fixed'
+        atm_irradiated_errtol = 1d-7
+        atm_irradiated_T_eq = 880
+        atm_irradiated_kap_v_div_kap_th = 0
+        atm_irradiated_kap_v = 4d-3
+        atm_irradiated_P_surf = 1d6
+
+        !!trace_atm_Paczynski_grey = .true.
+        !!Paczynski_atm_R_surf_errtol = 3d-4
+        
+
+	!mixing_length_alpha = 1.89d0 ! based on solar model
+	!MLT_option = 'Henyey'
+        
+        !!use_accreted_material_j = .true.
+
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 10
+
+	star_history_name = "history_EL_Tconst_15ME_0.1_9.0_t"
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+       read_extra_pgstar_inlist1 = .true.
+       extra_pgstar_inlist1_name = 'inlist_pgstar' 
+
+         
+/ ! end of pgstar namelist

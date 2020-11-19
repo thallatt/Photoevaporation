@@ -1,0 +1,79 @@
+! inlist_evolve
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name = <<loadfile>> 
+
+      save_model_when_terminate = .true.
+      save_model_filename = <<smwtfname>> 
+
+      ! remove energy dissipation from the core
+      relax_L_center = .true.
+      new_L_center = <<Lcore_new>> !4.48230e+21 ! ergs/sec
+      dlgL_per_step = 2d-3   !too high causes convergence issues
+      relax_L_center_dt = 3.1558149984d1 ! secyer*1d-6
+
+      set_initial_model_number = .true.
+      initial_model_number = 0
+
+      set_initial_age = .true.
+      initial_age = 0
+
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+
+      !set_tau_factor = .true. ! change tau_factor without reconverging.
+      !set_to_this_tau_factor = 100
+      
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+
+      pgstar_flag = .false.
+      pause_before_terminate = .false. ! lets you examine the final pgstar window when run terminates
+
+      set_initial_cumulative_energy_error = .true.
+      new_cumulative_energy_error = 0d0
+
+/ ! end of star_job namelist
+
+
+
+&controls
+
+        varcontrol_target = 1d-4
+ 	mesh_delta_coeff = <<mesh_delta_coeff>> !0.5
+
+	! when to stop
+	max_age = <<maxage>> 
+	max_model_number = 6000	! don't let it go on and on if run stuck
+
+	Teff_lower_limit = 10
+        logQ_limit=20000000000
+	T_mix_limit = 0
+
+        !center_entropy_lower_limit = 7.6    !kB/baryon 	
+
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 10
+
+	star_history_name = "history_5_removeLc"
+
+        !Print out star_mass to terminal
+        num_trace_history_values = 1
+        trace_history_value_name(1) = 'L_center' 
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+       !read_extra_pgstar_inlist1 = .true.
+       !extra_pgstar_inlist1_name = 'inlist_pgstar'   
+         
+
+/ ! end of pgstar namelist

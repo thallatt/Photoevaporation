@@ -1,0 +1,138 @@
+&pgstar
+
+   !Summary_Profile_win_flag = .true.
+   !Summary_Profile_name(1) = ''
+   !Summary_Profile_name(2) = ''
+   !Summary_Profile_name(7) = ''
+
+
+    grid1_win_flag = .true.
+    show_TRho_Profile_mass_locs = .true.
+    TRho_Profile_xmin = -8
+    TRho_Profile_xmax = 5
+    TRho_Profile_ymin = 1
+    TRho_Profile_ymax = 8
+    Grid1_win_width = 8 ! 6 by default      
+    
+    ! replace default Tc-Rhoc history plot by a P-T profile
+    Grid1_plot_name(3) = 'Profile_Panels2'
+    Profile_Panels2_num_panels = 1
+    Profile_Panels2_xaxis_name = 'logT'
+    Profile_Panels2_yaxis_name(1) = 'logP'
+    Profile_Panels2_other_yaxis_name(1) = ''
+    Profile_Panels2_yaxis_reversed(1) = .true.
+    Profile_Panels2_ymax(1) = 12 ! only used if /= -101d0
+    Profile_Panels2_xmin = 1 ! only used if /= -101d0
+    Profile_Panels2_xmax = 4 ! only used if /= -101d0
+    
+    ! text subplot
+    Grid1_txt_scale_factor(4) = 0.17   
+
+
+
+
+   History_Panels1_win_flag = .false.
+
+   History_Panels1_win_width = 8
+   History_Panels1_win_aspect_ratio = 0.75 ! aspect_ratio = height/width
+
+   History_Panels1_title = 'History'
+
+   History_Panels1_xaxis_name = 'log_star_age'
+   History_Panels1_xmin = -101d0
+   History_Panels1_xmax = -101d0
+   History_Panels1_max_width = -1 ! only used if > 0.  causes xmin to move with xmax.
+   History_Panels1_xaxis_reversed = .false.
+
+   ! setup default
+   History_Panels1_num_panels = 2
+
+   History_Panels1_yaxis_name(1) = 'radius'
+   History_Panels1_other_yaxis_name(1) = 'star_mass'
+           
+   History_Panels1_yaxis_name(2) = 'center_entropy'
+   History_Panels1_other_yaxis_name(2) = 'log_L'    
+
+
+   Profile_Panels1_win_flag = .false.
+
+   Profile_Panels1_win_width = 8
+   Profile_Panels1_win_aspect_ratio = 0.75 ! aspect_ratio = height/width
+
+   Profile_Panels1_xleft = 0.15
+   Profile_Panels1_xright = 0.85
+   Profile_Panels1_ybot = 0.15
+   Profile_Panels1_ytop = 0.85
+   Profile_Panels1_txt_scale = 1.0
+   Profile_Panels1_title = 'Profiles'
+
+   Profile_Panels1_xaxis_name = 'logP'
+   Profile_Panels1_xaxis_reversed = .true.
+   Profile_Panels1_xmin = -101d0 ! only used if /= -101d0
+   Profile_Panels1_xmax = -101d0 ! only used if /= -101d0
+   Profile_Panels1_xmargin = 0d0
+   Profile_Panels1_show_mix_regions_on_xaxis = .true.
+
+   Profile_Panels1_show_grid = .false.
+
+   Profile_Panels1_num_panels = 2
+
+   Profile_Panels1_yaxis_name(1) = 'logxm'
+   Profile_Panels1_other_yaxis_name(1) = 'radius'
+   !Profile_Panels1_ymin(1) = -0.1 ! only used if /= -101d0
+   !Profile_Panels1_ymax(1) = 0.4 ! only used if /= -101d0
+   !Profile_Panels1_other_ymin(1) = -0.1 ! only used if /= -101d0
+   !Profile_Panels1_other_ymax(1) = 0.4 ! only used if /= -101d0
+   
+   Profile_Panels1_yaxis_name(2) = 'entropy'
+   Profile_Panels1_other_yaxis_name(2) = 'logT' ! 'mass'
+   !Profile_Panels1_other_ymin(2) = -1 ! only used if /= -101d0
+
+
+
+
+   ! grid to put the profile and history plots together
+   Grid2_win_flag = .true.
+
+   Grid2_win_width = 6.5
+   Grid2_win_aspect_ratio = 1.2 ! aspect_ratio = height/width
+
+   Grid2_xleft = 0.12 ! fraction of full window width for margin on left
+   Grid2_xright = 0.95 ! fraction of full window width for margin on right
+   Grid2_ybot = 0.08 ! fraction of full window width for margin on bottom
+   Grid2_ytop = 0.92 ! fraction of full window width for margin on top
+   Grid2_title = ''
+
+   ! set default
+   Grid2_num_cols = 1 ! divide plotting region into this many equal width cols
+   Grid2_num_rows = 2 ! divide plotting region into this many equal height rows
+   Grid2_num_plots = 2 ! <= 10
+
+   Grid2_plot_name(1) = 'History_Panels1'
+   Grid2_plot_row(1) = 1 ! number from 1 at top
+   Grid2_plot_rowspan(1) = 1 ! plot spans this number of rows
+   Grid2_plot_col(1) =  1 ! number from 1 at left
+   Grid2_plot_colspan(1) = 1 ! plot spans this number of columns
+   Grid2_plot_pad_left(1) = 0.0 ! fraction of full window width for padding on left
+   Grid2_plot_pad_right(1) = 0.06 ! fraction of full window width for padding on right
+   Grid2_plot_pad_top(1) = 0.0 ! fraction of full window height for padding at top
+   Grid2_plot_pad_bot(1) = 0.06 ! fraction of full window height for padding at bottom
+   Grid2_txt_scale_factor(1) = 0.6 ! multiply txt_scale for subplot by this
+
+   Grid2_plot_name(2) = 'Profile_Panels1'
+   Grid2_plot_row(2) = 2 ! number from 1 at top
+   Grid2_plot_rowspan(2) = 1 ! plot spans this number of rows
+   Grid2_plot_col(2) =  1 ! number from 1 at left
+   Grid2_plot_colspan(2) = 1 ! plot spans this number of columns
+   Grid2_plot_pad_left(2) = 0.0 ! fraction of full window width for padding on left
+   Grid2_plot_pad_right(2) = 0.06 ! fraction of full window width for padding on right
+   Grid2_plot_pad_top(2) = 0.06 ! fraction of full window height for padding at top
+   Grid2_plot_pad_bot(2) = 0. ! fraction of full window height for padding at bottom
+   Grid2_txt_scale_factor(2) = 0.6 ! multiply txt_scale for subplot by this
+   
+   !Grid2_file_flag = .true.
+   !Grid2_file_interval = 10
+
+
+         
+/ 
