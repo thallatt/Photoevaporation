@@ -1,0 +1,122 @@
+! inlist_evolve
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name = "planet_6_relaxirrad_20.0_ME_fat_0.375_S9.0_d_0.04_1.0Msun.mod" 
+      save_model_when_terminate = .true.
+      save_model_filename = "planet_7_evolved_20.0_ME_fat_0.375_S9.0_d_0.04_1.0Msun_10.0Pstar_FalseThermal.mod" 
+
+      
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+
+      set_initial_dt = .true.
+      years_for_initial_dt = 1.d1
+     
+      !!set_tau_factor = .true. ! change tau_factor without reconverging.
+      !!set_to_this_tau_factor = 100
+      
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+
+      change_v_flag = .true. ! needed for good rel_run_E_err
+      new_v_flag = .true.
+      
+      set_initial_age = .true.
+      initial_age = 10000000.0
+
+      set_initial_cumulative_energy_error = .true.
+      new_cumulative_energy_error = 0d0
+
+      pgstar_flag = .false.
+      pause_before_terminate = .false. ! lets you examine the final pgstar window when run terminates
+
+      profile_starting_model = .false.
+      profile_model_number = 477
+
+            
+     
+/ ! end of star_job namelist
+
+
+
+&controls
+
+        use_gold_tolerances = .true.
+        use_eosDT2 = .false. !DO NOT CHANGE THIS!!! this is not an error
+        !use_eosELM = .false.
+
+        !mass loss
+        use_other_adjust_mdot = .true.
+        x_ctrl(1) = 0.04 !orbital separation in au (both EL and HD escape)
+	x_ctrl(2) = 0.1   !eta_EUV heating efficiency (EL escape)
+        x_ctrl(3) = 1.1   !r=R_EUV/R_p (EL escape) _NOT USED NOW_
+        !for Rogers heating model
+        x_ctrl(4) = 1d10 ! core heat capacity  eps=erg/g/K
+        x_ctrl(5) = 1. ! fraction of core mass in "chondrite-like" rocky material
+        ! log10 accretion rate in msun/secyer
+        x_ctrl(6) = -3
+        ! log10 max timestep in yr
+        x_ctrl(7) = 8.0
+
+	! surface heating
+	!column_depth_for_irradiation = 3.d2 !cm^2/g  
+        !irradiation_flux = 1.36d8! !erg/cm^2/s ! day side flux, stellar irradiance incident on planet (1 solar mass, 0.1 au), present time
+        use_other_energy = .true. !if changing to .false. uncomment _two previous strings_ (sets constant heating throughout the evolution)
+        
+                
+	! when to stop
+	max_age = 10000000000.0 
+	max_model_number = 6000	! don't let it go on and on if run stuck
+	Teff_lower_limit = 10
+	T_mix_limit = 0
+
+	logQ_limit = 1.0d3!mod
+        
+        !star_mass_min_limit = 3.005d-4 !if you expect the atmosphere to escape fully, to avoid it getting stuck
+
+
+        varcontrol_target = 2d-4 !2
+ 	mesh_delta_coeff = 0.5 !0.5 !0.5
+        !mesh_delta_coeff_for_highT = 1.0d0
+        
+        !one other way to set constant heating
+        !!atm_option = 'table' 
+        !!atm_table = 'tau_100'
+
+        !atm_option = 'irradiated_grey'
+        !atm_irradiated_opacity = 'fixed'
+        !atm_irradiated_errtol = 1d-7
+        !atm_irradiated_T_eq = 880
+        !atm_irradiated_kap_v_div_kap_th = 0
+        !atm_irradiated_kap_v = 4d-3
+        !atm_irradiated_P_surf = 1d6
+          
+
+	mixing_length_alpha = 1.89d0 ! based on solar model
+	MLT_option = 'Henyey'
+        
+        
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 10
+	
+	profile_interval = 10
+	max_num_profile_models=5
+
+	star_history_name = "history_7_evolved_20.0_ME_fat_0.375_S9.0_d_0.04_1.0Msun_10.0Pstar_FalseThermal" 
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+       read_extra_pgstar_inlist1 = .false.
+       extra_pgstar_inlist1_name = 'inlist_pgstar' 
+
+         
+/ ! end of pgstar namelist

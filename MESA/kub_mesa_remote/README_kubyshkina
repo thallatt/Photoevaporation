@@ -1,0 +1,22 @@
+This setup allows one to model the planetary evolution as described in Kubyshkina et al., 2020 (MNRAS, Coupling thermal evolution of planets and hydrodynamic atmospheric escape in MESA). The python script is based on the original python script by Phil Arras and the adaptation by Howard Chen & Leslie A. Rogers, 2016 (ApJ, 831, 180). If you would like to use/adapt this script for your work, please, cite:
+Kubyshkina et al., 2020 (MNRAS, Coupling thermal evolution of planets and hydrodynamic atmospheric escape in MESA).
+-------------------------------------------------------------------------------------------------------------------------
+
+To model the planet of your choice, please open 'bake_your_planet.py' and modify the planetary parameters as explained in the comments. The python script will adapt and run the MESA inlists, as described in Section 2.1 of Kubyshkina et al., 2020.
+The current script uses pgplot to plot on-run the progress of the last step (evolution with atmospheric escape) and pauses at the end. If putting the procedure inside of the loop, you may want to get rid of it. To do so, open 'inlist_7_evolve_mass_loss' and set:
+      pgstar_flag = .false.
+      pause_before_terminate = .false.
+
+The current version of this setup employs the MESA version 12115. If you are using a newer version, a handful of minor corrections may be needed for inlists 1-7 (as, e.g., the 'eosDT2' module was retired in the latest release 12778; normally, these errors are reported at the compilation stage and easy to fix). If you are new to MESA, I recommend visiting http://mesa.sourceforge.net/ for an introduction and installation guide (there you will also find references to detailed instrument papers 2011-2019). 
+
+Individual history files are written only for the last (evolution) step, the rest is overwritten when modelling a new planet.
+
+The new folders compare to standard MESA working setup:
+'tmp_inlists' - contains the temporary inlists created during the run; if something went wrong, you can see for which combination of parameters it happened. If including the whole procedure in the loop, don't forget to remove the old ones.
+'ev_inp' - the input profiles for the evolution of stars with masses 0.4-1.3 Msun (MIST; Choi et al., 2016)
+
+To know more about the atmospheric escape model used in this work, please, check the following papers:
+Kubyshkina et al., 2018b (ApJ, 866, L18; HBA approximation);
+Kubyshkina et al., 2018a (A&A, 619, A151; hydrodynamic escape model).
+
+If you have any further questions or issues with running the code, or would like to have some assistance with modifying the code for your task, please contact me at kubyshkd.tcd.ie or kubyshkina.darya@gmail.com (affiliations can change but google will spy on us forever :) )
