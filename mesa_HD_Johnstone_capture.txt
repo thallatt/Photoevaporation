@@ -1,0 +1,1018 @@
+Last login: Fri Apr  2 11:13:17 on ttys018
+Tims-Puter:code Tim$ cd /Applications/kub_mesa_local/
+Tims-Puter:kub_mesa_local Tim$ py
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> d=pd.read_pickle('mesa_HD_Johnstone.pkl')
+>>> d.loc[d['period']==75.]
+Empty DataFrame
+Columns: [coremass, gcr, period, Pstar, Rf_5Gyr, Rf_5Gyr_massloss, Mf_5Gyr, perc_masslost]
+Index: []
+>>> d.sort_values(by='period')
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+15     36.00  0.128     2.4   10.0  4.9331           3.8569   37.491          67.65
+14     35.00  0.700     2.4   10.0  6.6139           6.6139   45.693          56.36
+60     30.00  0.180     4.2    5.0  5.0253           4.1593   32.556          52.68
+63     33.00  0.175     4.2    1.0  5.0256           3.9323   35.021          65.01
+62     27.00  0.178     4.2   10.0  4.9592           3.9923   29.033          57.70
+16     21.00  0.980     4.2   10.0  7.2729           7.2729   29.153          60.38
+13     27.00  0.175     4.2   10.0  4.9312           3.9828   29.010          57.45
+11     29.00  0.175     4.2   10.0  4.9807           4.2097   31.641          47.97
+10     31.00  0.180     4.2    5.0  5.0452           4.2623   33.882          48.35
+12     29.00  0.175     4.2    5.0  4.9807           4.0326   31.185          56.95
+8      19.00  0.920     4.2   10.0  7.9101           2.8580   19.297          98.30
+61     28.00  0.178     4.2   10.0  4.9837           4.1124   30.355          52.74
+58     32.00  0.175     4.2    1.0  5.0370           3.7850   33.614          71.18
+9      31.00  0.180     4.2   10.0  5.0452           4.4208   34.354          39.89
+59     31.00  0.180     4.2    5.0  5.0452           4.2626   33.882          48.35
+19     20.00  0.980     5.5   20.0  8.9773           3.3632   20.636          96.75
+34     16.50  1.100     7.5    5.0  7.9783           3.6265   17.739          93.17
+53     26.00  0.210     7.5    1.0  5.0550           4.1931   28.677          50.96
+54     25.00  0.210     7.5    1.0  5.0346           4.0667   27.314          55.92
+55     21.00  0.230     7.5   10.0  5.1035           4.3090   23.633          45.48
+56     21.00  0.230     7.5    5.0  5.1035           4.1087   23.192          54.62
+57     20.00  0.220     7.5   10.0  5.0125           4.1218   22.161          50.88
+38     20.00  1.100     7.5    1.0  7.9830           3.7631   21.614          92.66
+37     21.50  1.100     7.5    1.0  7.9821           4.4378   24.681          86.55
+35     17.00  1.100     7.5    5.0  7.9714           3.8728   18.643          91.21
+36     18.00  1.100     7.5    5.0  7.9584           4.4223   20.739          86.17
+7      16.00  1.100     7.5   10.0  7.9656           3.9159   17.639          90.69
+17     19.00  1.200    10.5   20.0  8.3619           7.3904   33.065          38.31
+18     13.00  1.200    12.7   20.0  8.3454           4.4705   15.008          87.13
+30     12.00  1.200    13.3    5.0  8.0451           3.7226   13.155          91.98
+..       ...    ...     ...    ...     ...              ...      ...            ...
+69      8.61  1.200    14.8   20.0  8.3430           2.4480    8.726          98.87
+44     11.00  0.270    23.6    5.0  5.0581           4.1622   12.615          45.63
+3       8.00  1.200    23.6   10.0  8.0454           3.8335    8.968          89.91
+4       8.50  1.200    23.6   10.0  8.0099           4.4453   10.108          84.24
+25     11.00  1.250    23.6    1.0  7.9959           4.3960   12.987          85.55
+23      9.00  1.200    23.6    5.0  7.9794           4.2271   10.451          86.56
+24     10.00  1.200    23.6    1.0  7.9599           3.4933   10.852          92.90
+21      8.50  1.200    23.6    5.0  8.0055           3.7530    9.457          90.61
+42     12.00  0.270    23.6    5.0  5.0585           4.4008   14.071          36.07
+45     10.00  0.270    23.6   10.0  5.0624           4.1055   11.413          47.65
+22      8.50  1.200    23.6   10.0  8.0099           4.4453   10.108          84.24
+43     13.00  0.270    23.6    1.0  5.0664           4.0865   14.732          50.66
+64      7.00  1.300    42.0    5.0  7.9999           5.7193    9.917          67.95
+65      7.00  0.290    42.0    5.0  5.0539           3.9112    7.950          53.19
+66      5.00  1.200    42.0   10.0  8.1770           2.9904    5.294          95.10
+67      7.00  0.290    42.0    5.0  5.0539           3.9112    7.950          53.19
+71      5.75  1.150    42.0   10.0  7.9323           4.0635    6.663          86.20
+0       6.00  1.200    42.0   10.0  8.0835           4.4954    7.214          83.15
+40      7.50  0.270    42.0    5.0  4.9226           4.0436    8.636          43.89
+39      9.00  0.300    42.0    1.0  5.0836           4.0060   10.317          51.21
+29      7.50  1.300    42.0    1.0  7.9732           4.1022    8.738          87.31
+28      7.50  1.300    42.0    1.0  7.9732           4.1022    8.738          87.31
+27      7.00  1.300    42.0    1.0  7.9999           3.5300    7.736          91.92
+26      9.00  1.400    42.0    1.0  8.0960           6.4311   14.409          57.07
+20      6.00  1.200    42.0    1.0  8.0671           2.7556    6.243          96.63
+2       6.00  1.200    42.0    5.0  8.0834           3.8012    6.753          89.54
+1       6.00  1.200    42.0   10.0  8.0835           4.4954    7.214          83.15
+41      7.00  0.290    42.0   10.0  5.0539           4.1550    8.141          43.78
+72      5.75  1.150   133.0    1.0  6.8700           6.8700   11.013          20.41
+73      5.75  0.300   133.0    1.0  4.8255           4.4588    7.137          19.58
+
+[74 rows x 8 columns]
+>>> d.loc[d['period']==42.]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+1       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+2       6.00  1.20    42.0    5.0  8.0834           3.8012    6.753          89.54
+20      6.00  1.20    42.0    1.0  8.0671           2.7556    6.243          96.63
+26      9.00  1.40    42.0    1.0  8.0960           6.4311   14.409          57.07
+27      7.00  1.30    42.0    1.0  7.9999           3.5300    7.736          91.92
+28      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+29      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+39      9.00  0.30    42.0    1.0  5.0836           4.0060   10.317          51.21
+40      7.50  0.27    42.0    5.0  4.9226           4.0436    8.636          43.89
+41      7.00  0.29    42.0   10.0  5.0539           4.1550    8.141          43.78
+64      7.00  1.30    42.0    5.0  7.9999           5.7193    9.917          67.95
+65      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+66      5.00  1.20    42.0   10.0  8.1770           2.9904    5.294          95.10
+67      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+71      5.75  1.15    42.0   10.0  7.9323           4.0635    6.663          86.20
+>>> d.loc[d['period']==4.2]
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+8       19.0  0.920     4.2   10.0  7.9101           2.8580   19.297          98.30
+9       31.0  0.180     4.2   10.0  5.0452           4.4208   34.354          39.89
+10      31.0  0.180     4.2    5.0  5.0452           4.2623   33.882          48.35
+11      29.0  0.175     4.2   10.0  4.9807           4.2097   31.641          47.97
+12      29.0  0.175     4.2    5.0  4.9807           4.0326   31.185          56.95
+13      27.0  0.175     4.2   10.0  4.9312           3.9828   29.010          57.45
+16      21.0  0.980     4.2   10.0  7.2729           7.2729   29.153          60.38
+58      32.0  0.175     4.2    1.0  5.0370           3.7850   33.614          71.18
+59      31.0  0.180     4.2    5.0  5.0452           4.2626   33.882          48.35
+60      30.0  0.180     4.2    5.0  5.0253           4.1593   32.556          52.68
+61      28.0  0.178     4.2   10.0  4.9837           4.1124   30.355          52.74
+62      27.0  0.178     4.2   10.0  4.9592           3.9923   29.033          57.70
+63      33.0  0.175     4.2    1.0  5.0256           3.9323   35.021          65.01
+>>> d=pd.read_pickle('mesa_HD_highmass_Johnstone.pkl')
+>>> d.loc[d['period']==4.2]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0       21.0  0.98     4.2   10.0  8.0004           5.3690   26.264          74.42
+1       20.0  0.98     4.2   10.0  8.0044           3.3762   20.890          95.46
+10      21.0  0.98     4.2    5.0  7.9937           4.3786   23.693          86.92
+11      24.0  0.98     4.2    1.0  8.0318           7.1690   39.649          33.47
+12      22.0  0.98     4.2    1.0  7.9965           3.6913   23.420          93.41
+36      24.5  1.00     4.2   10.0  7.7666           7.6387   47.387           6.58
+>>> d.loc[d['period']==2.4]
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+2       28.0  0.670     2.4   10.0  7.9668           6.8479   39.445          38.99
+3       24.0  0.670     2.4   10.0  8.0839           2.5098   23.997         100.02
+4       26.0  0.670     2.4   10.0  7.9926           3.6228   27.052          93.96
+5       27.0  0.670     2.4   10.0  8.0027           4.7965   30.402          81.19
+8       26.5  0.670     2.4   10.0  7.9503           4.1339   28.465          88.93
+13      27.0  0.670     2.4    5.0  8.0002           4.0016   28.731          90.43
+14      28.0  0.670     2.4    1.0  7.9667           3.1539   28.416          97.78
+15      30.0  0.690     2.4    1.0  8.0143           5.6795   36.666          67.80
+18      39.0  0.128     2.4   10.0  4.9755           4.8720   43.504           9.78
+19      38.0  0.129     2.4   10.0  4.9907           4.7557   42.045          17.48
+20      35.0  0.129     2.4   10.0  4.9444           3.9805   36.760          61.01
+21      38.0  0.129     2.4    5.0  4.9906           4.7339   41.968          19.05
+22      38.0  0.129     2.4    1.0  4.9906           4.6677   41.758          23.33
+23      35.0  0.135     2.4    5.0  5.0052           3.8748   36.531          67.61
+24      35.0  0.135     2.4   10.0  5.0054           4.0674   36.999          57.69
+25      36.0  0.134     2.4    5.0  4.9937           4.4180   38.924          39.39
+26      36.0  0.134     2.4    1.0  4.9937           4.1834   38.301          52.31
+>>> >=pd.read_pickle('mesa_HD_Johnstone.pkl')
+>>> d.loc[d['period']==23.6]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+3        8.0  1.20    23.6   10.0  8.0454           3.8335    8.968          89.91
+4        8.5  1.20    23.6   10.0  8.0099           4.4453   10.108          84.24
+21       8.5  1.20    23.6    5.0  8.0055           3.7530    9.457          90.61
+22       8.5  1.20    23.6   10.0  8.0099           4.4453   10.108          84.24
+23       9.0  1.20    23.6    5.0  7.9794           4.2271   10.451          86.56
+24      10.0  1.20    23.6    1.0  7.9599           3.4933   10.852          92.90
+25      11.0  1.25    23.6    1.0  7.9959           4.3960   12.987          85.55
+42      12.0  0.27    23.6    5.0  5.0585           4.4008   14.071          36.07
+43      13.0  0.27    23.6    1.0  5.0664           4.0865   14.732          50.66
+44      11.0  0.27    23.6    5.0  5.0581           4.1622   12.615          45.63
+45      10.0  0.27    23.6   10.0  5.0624           4.1055   11.413          47.65
+>>> d.loc[d['period']==42.]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+1       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+2       6.00  1.20    42.0    5.0  8.0834           3.8012    6.753          89.54
+20      6.00  1.20    42.0    1.0  8.0671           2.7556    6.243          96.63
+26      9.00  1.40    42.0    1.0  8.0960           6.4311   14.409          57.07
+27      7.00  1.30    42.0    1.0  7.9999           3.5300    7.736          91.92
+28      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+29      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+39      9.00  0.30    42.0    1.0  5.0836           4.0060   10.317          51.21
+40      7.50  0.27    42.0    5.0  4.9226           4.0436    8.636          43.89
+41      7.00  0.29    42.0   10.0  5.0539           4.1550    8.141          43.78
+64      7.00  1.30    42.0    5.0  7.9999           5.7193    9.917          67.95
+65      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+66      5.00  1.20    42.0   10.0  8.1770           2.9904    5.294          95.10
+67      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+71      5.75  1.15    42.0   10.0  7.9323           4.0635    6.663          86.20
+>>> >=pd.read_pickle('mesa_HD.pkl')
+>>> d=pd.read_pickle('mesa_HD.pkl')
+>>> d.loc[d['period']==75.]
+     coremass  gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+179       6.0  0.3    75.0    5.0  5.0139           3.5649    6.695          61.38
+180       6.0  0.3    75.0    5.0  5.0139           4.0278    7.010          43.87
+181       9.0  0.3    75.0    1.0  4.9480           4.1666   10.629          39.66
+182       8.5  0.3    75.0    1.0  4.9347           4.0634    9.913          44.57
+>>> >=pd.read_pickle('mesa_HD_Johnstone.pkl')
+>>> d.loc[d['period']==7.5]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+7       16.0  1.10     7.5   10.0  7.9656           3.9159   17.639          90.69
+34      16.5  1.10     7.5    5.0  7.9783           3.6265   17.739          93.17
+35      17.0  1.10     7.5    5.0  7.9714           3.8728   18.643          91.21
+36      18.0  1.10     7.5    5.0  7.9584           4.4223   20.739          86.17
+37      21.5  1.10     7.5    1.0  7.9821           4.4378   24.681          86.55
+38      20.0  1.10     7.5    1.0  7.9830           3.7631   21.614          92.66
+53      26.0  0.21     7.5    1.0  5.0550           4.1931   28.677          50.96
+54      25.0  0.21     7.5    1.0  5.0346           4.0667   27.314          55.92
+55      21.0  0.23     7.5   10.0  5.1035           4.3090   23.633          45.48
+56      21.0  0.23     7.5    5.0  5.1035           4.1087   23.192          54.62
+57      20.0  0.22     7.5   10.0  5.0125           4.1218   22.161          50.88
+>>> d.loc[d['period']==13.3]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+5       12.0  1.20    13.3   10.0  8.0451           4.4152   14.030          85.91
+6       11.0  1.20    13.3   10.0  8.0772           3.5902   11.944          92.85
+30      12.0  1.20    13.3    5.0  8.0451           3.7226   13.155          91.98
+31      13.0  1.20    13.3    5.0  8.0416           4.5273   15.373          84.79
+32      16.0  1.19    13.3    1.0  8.0153           4.8379   19.509          81.57
+33      14.5  1.20    13.3    1.0  8.0192           3.8145   15.952          91.65
+46      14.0  0.25    13.3   10.0  5.0567           4.0749   15.693          51.63
+47      15.0  0.25    13.3    5.0  5.0705           4.0727   16.783          52.45
+48      22.0  0.23    13.3    1.0  5.0657           4.5561   25.469          31.43
+49      19.0  0.25    13.3    5.0  5.1334           4.6899   22.489          26.55
+50      17.0  0.24    13.3    5.0  5.0371           4.3992   19.568          37.06
+51      19.0  0.25    13.3    1.0  5.1335           4.2478   21.442          48.58
+52      18.2  0.25    13.3    1.0  5.1303           4.1106   20.292          54.02
+>>> d.loc[d['period']==23.6]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+3        8.0  1.20    23.6   10.0  8.0454           3.8335    8.968          89.91
+4        8.5  1.20    23.6   10.0  8.0099           4.4453   10.108          84.24
+21       8.5  1.20    23.6    5.0  8.0055           3.7530    9.457          90.61
+22       8.5  1.20    23.6   10.0  8.0099           4.4453   10.108          84.24
+23       9.0  1.20    23.6    5.0  7.9794           4.2271   10.451          86.56
+24      10.0  1.20    23.6    1.0  7.9599           3.4933   10.852          92.90
+25      11.0  1.25    23.6    1.0  7.9959           4.3960   12.987          85.55
+42      12.0  0.27    23.6    5.0  5.0585           4.4008   14.071          36.07
+43      13.0  0.27    23.6    1.0  5.0664           4.0865   14.732          50.66
+44      11.0  0.27    23.6    5.0  5.0581           4.1622   12.615          45.63
+45      10.0  0.27    23.6   10.0  5.0624           4.1055   11.413          47.65
+>>> d=pd.read_pickle('mesa_HD_Johnstone.pkl')
+>>> d.loc[d['period']==42.]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+1       6.00  1.20    42.0   10.0  8.0835           4.4954    7.214          83.15
+2       6.00  1.20    42.0    5.0  8.0834           3.8012    6.753          89.54
+20      6.00  1.20    42.0    1.0  8.0671           2.7556    6.243          96.63
+26      9.00  1.40    42.0    1.0  8.0960           6.4311   14.409          57.07
+27      7.00  1.30    42.0    1.0  7.9999           3.5300    7.736          91.92
+28      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+29      7.50  1.30    42.0    1.0  7.9732           4.1022    8.738          87.31
+39      9.00  0.30    42.0    1.0  5.0836           4.0060   10.317          51.21
+40      7.50  0.27    42.0    5.0  4.9226           4.0436    8.636          43.89
+41      7.00  0.29    42.0   10.0  5.0539           4.1550    8.141          43.78
+64      7.00  1.30    42.0    5.0  7.9999           5.7193    9.917          67.95
+65      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+66      5.00  1.20    42.0   10.0  8.1770           2.9904    5.294          95.10
+67      7.00  0.29    42.0    5.0  5.0539           3.9112    7.950          53.19
+71      5.75  1.15    42.0   10.0  7.9323           4.0635    6.663          86.20
+74      5.50  1.17    42.0   10.0  8.0129           3.5787    6.096          90.74
+>>> d.loc[d['period']==75.]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+75       4.0  1.17    75.0    5.0  8.1884           3.2894    4.374          92.01
+76       4.5  1.22    75.0    5.0  8.0290           4.3756    5.461          82.50
+77       6.0  0.32    75.0    5.0  5.1037           4.4616    7.374          28.46
+78       5.0  0.30    75.0    5.0  4.9567           4.0008    5.831          44.59
+>>> d.loc[d['period']==4.2]
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+8       19.0  0.920     4.2   10.0  7.9101           2.8580   19.297          98.30
+9       31.0  0.180     4.2   10.0  5.0452           4.4208   34.354          39.89
+10      31.0  0.180     4.2    5.0  5.0452           4.2623   33.882          48.35
+11      29.0  0.175     4.2   10.0  4.9807           4.2097   31.641          47.97
+12      29.0  0.175     4.2    5.0  4.9807           4.0326   31.185          56.95
+13      27.0  0.175     4.2   10.0  4.9312           3.9828   29.010          57.45
+16      21.0  0.980     4.2   10.0  7.2729           7.2729   29.153          60.38
+58      32.0  0.175     4.2    1.0  5.0370           3.7850   33.614          71.18
+59      31.0  0.180     4.2    5.0  5.0452           4.2626   33.882          48.35
+60      30.0  0.180     4.2    5.0  5.0253           4.1593   32.556          52.68
+61      28.0  0.178     4.2   10.0  4.9837           4.1124   30.355          52.74
+62      27.0  0.178     4.2   10.0  4.9592           3.9923   29.033          57.70
+63      33.0  0.175     4.2    1.0  5.0256           3.9323   35.021          65.01
+>>> d.loc[d['period']==7.5]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+7       16.0  1.10     7.5   10.0  7.9656           3.9159   17.639          90.69
+34      16.5  1.10     7.5    5.0  7.9783           3.6265   17.739          93.17
+35      17.0  1.10     7.5    5.0  7.9714           3.8728   18.643          91.21
+36      18.0  1.10     7.5    5.0  7.9584           4.4223   20.739          86.17
+37      21.5  1.10     7.5    1.0  7.9821           4.4378   24.681          86.55
+38      20.0  1.10     7.5    1.0  7.9830           3.7631   21.614          92.66
+53      26.0  0.21     7.5    1.0  5.0550           4.1931   28.677          50.96
+54      25.0  0.21     7.5    1.0  5.0346           4.0667   27.314          55.92
+55      21.0  0.23     7.5   10.0  5.1035           4.3090   23.633          45.48
+56      21.0  0.23     7.5    5.0  5.1035           4.1087   23.192          54.62
+57      20.0  0.22     7.5   10.0  5.0125           4.1218   22.161          50.88
+>>> d.loc[d['period']==13.3]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+5       12.0  1.20    13.3   10.0  8.0451           4.4152   14.030          85.91
+6       11.0  1.20    13.3   10.0  8.0772           3.5902   11.944          92.85
+30      12.0  1.20    13.3    5.0  8.0451           3.7226   13.155          91.98
+31      13.0  1.20    13.3    5.0  8.0416           4.5273   15.373          84.79
+32      16.0  1.19    13.3    1.0  8.0153           4.8379   19.509          81.57
+33      14.5  1.20    13.3    1.0  8.0192           3.8145   15.952          91.65
+46      14.0  0.25    13.3   10.0  5.0567           4.0749   15.693          51.63
+47      15.0  0.25    13.3    5.0  5.0705           4.0727   16.783          52.45
+48      22.0  0.23    13.3    1.0  5.0657           4.5561   25.469          31.43
+49      19.0  0.25    13.3    5.0  5.1334           4.6899   22.489          26.55
+50      17.0  0.24    13.3    5.0  5.0371           4.3992   19.568          37.06
+51      19.0  0.25    13.3    1.0  5.1335           4.2478   21.442          48.58
+52      18.2  0.25    13.3    1.0  5.1303           4.1106   20.292          54.02
+>>> d.loc[d['period']==4.2]
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+8       19.0  0.920     4.2   10.0  7.9101           2.8580   19.297          98.30
+9       31.0  0.180     4.2   10.0  5.0452           4.4208   34.354          39.89
+10      31.0  0.180     4.2    5.0  5.0452           4.2623   33.882          48.35
+11      29.0  0.175     4.2   10.0  4.9807           4.2097   31.641          47.97
+12      29.0  0.175     4.2    5.0  4.9807           4.0326   31.185          56.95
+13      27.0  0.175     4.2   10.0  4.9312           3.9828   29.010          57.45
+16      21.0  0.980     4.2   10.0  7.2729           7.2729   29.153          60.38
+58      32.0  0.175     4.2    1.0  5.0370           3.7850   33.614          71.18
+59      31.0  0.180     4.2    5.0  5.0452           4.2626   33.882          48.35
+60      30.0  0.180     4.2    5.0  5.0253           4.1593   32.556          52.68
+61      28.0  0.178     4.2   10.0  4.9837           4.1124   30.355          52.74
+62      27.0  0.178     4.2   10.0  4.9592           3.9923   29.033          57.70
+63      33.0  0.175     4.2    1.0  5.0256           3.9323   35.021          65.01
+>>> d=pd.read_pickle('mesa_HD_Highmass_Johnstone.pkl')
+>>> d.loc[d['period']==4.2]
+    coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0       21.0  0.98     4.2   10.0  8.0004           5.3690   26.264          74.42
+1       20.0  0.98     4.2   10.0  8.0044           3.3762   20.890          95.46
+10      21.0  0.98     4.2    5.0  7.9937           4.3786   23.693          86.92
+11      24.0  0.98     4.2    1.0  8.0318           7.1690   39.649          33.47
+12      22.0  0.98     4.2    1.0  7.9965           3.6913   23.420          93.41
+36      24.5  1.00     4.2   10.0  7.7666           7.6387   47.387           6.58
+>>> d=pd.read_pickle('mesa_HD_Highmass.pkl')
+>>> d.loc[d['period']==4.2]
+    coremass    gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+1       33.0  0.175     4.2   10.0  5.8208           5.8208   38.689           1.49
+32      26.0  0.980     4.2    1.0  8.0735           6.8269   39.903          45.44
+33      25.0  0.980     4.2    1.0  8.0511           5.9782   33.803          64.07
+34      23.0  0.980     4.2    1.0  8.0990           2.9351   23.342          98.48
+35      24.0  0.980     4.2    1.0  8.0474           3.8995   25.886          91.98
+36      22.0  0.980     4.2    5.0  7.9927           7.0686   35.544          37.18
+37      15.0  0.920     4.2    5.0  7.4137           7.4137   17.604          81.13
+38      15.0  0.920     4.2    5.0  2.7739           2.7739   15.116          99.16
+39      19.0  0.920     4.2    5.0  7.9508           2.1324   18.993         100.04
+40      21.0  0.920     4.2    5.0  7.8894           3.1782   21.627          96.76
+41      21.0  0.980     4.2    5.0  8.0247           4.0976   23.134          89.63
+42      15.0  0.920     4.2   10.0  5.3890           5.3890   16.198          91.32
+43      19.0  0.920     4.2   10.0  7.9508           2.6191   19.116          99.34
+44      21.0  0.980     4.2   10.0  8.0247           5.6562   27.228          69.74
+45      20.0  0.980     4.2   10.0  7.9905           3.1901   20.642          96.73
+46      35.0  0.175     4.2    1.0  5.0674           4.8398   40.129          16.26
+47      34.0  0.175     4.2    1.0  5.0534           3.9558   36.076          65.11
+48      32.0  0.175     4.2    5.0  5.0651           3.8922   33.843          67.09
+49      31.0  0.180     4.2   10.0  5.0173           4.4994   34.649          34.61
+50      29.0  0.175     4.2   10.0  4.9426           4.3059   31.935          42.17
+66      28.0  0.180     4.2   10.0  5.0108           3.9647   29.974          60.84
+78      22.0  0.980     4.2   10.0  8.2036           7.8267   39.795          17.46
+79      20.0  0.980     4.2    1.0  8.2208           3.0300   20.459          97.66
+84      21.0  0.980     4.2   10.0  8.0247           5.6562   27.228          69.74
+85      21.0  0.980     4.2   10.0  8.0247           5.6562   27.228          69.74
+86      20.0  0.980     4.2   10.0  3.4047           3.4047   20.928          95.26
+>>> d=pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> d=pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> exit()
+Tims-Puter:kub_mesa_local Tim$ py
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> exit()
+Tims-Puter:kub_mesa_local Tim$ stat mesa_HD_Johnstone.pkl
+16777220 8632990454 -rw-r--r-- 1 Tim admin 0 0 "Apr  3 10:38:33 2021" "Apr  2 22:52:24 2021" "Apr  2 22:52:24 2021" "Feb  1 10:23:10 2021" 4194304 0 0 mesa_HD_Johnstone.pkl
+Tims-Puter:kub_mesa_local Tim$ py
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24) 
+[Clang 6.0 (clang-600.0.57)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> pd.read_pickle('mesa_HD_Johnstone_0.5Msol.pkl')
+   coremass   gcr  period  Pstar Rf_5Gyr Rf_5Gyr_massloss  Mf_5Gyr  perc_masslost
+0      20.0  1.05     1.3   10.0  7.8224           5.2297   25.246          75.02
+1      19.0  1.15     1.3   10.0  7.9868           4.4943   22.084          85.89
+2      18.0  1.15     1.3   10.0  7.9795           2.8191   18.331          98.40
+3      20.0  0.98     1.0   10.0  7.7294           2.7058   20.200          98.98
+>>> pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> os.path.getsize('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'os' is not defined
+>>> import os
+>>> os.path.getsize('mesa_HD_Johnstone.pkl')
+0
+>>> pd.read_pickle('mesa_HD_Johnstone_TEST.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TEST.pkl'
+>>> pd.read_pickle('mesa_HD_Johnstone_TESTING.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 147, in read_wrapper
+    is_text=False)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/common.py", line 406, in _get_handle
+    f = open(path_or_buf, mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'mesa_HD_Johnstone_TESTING.pkl'
+>>> pd.read_pickle('mesa_HD_Johnstone.pkl')
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 177, in read_pickle
+    return try_read(path)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in try_read
+    return read_wrapper(lambda f: pkl.load(f))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 166, in <lambda>
+    return read_wrapper(lambda f: pkl.load(f))
+EOFError: Ran out of input
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 171, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=False))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 180, in read_pickle
+    return try_read(path, encoding='latin1')
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in try_read
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 149, in read_wrapper
+    return func(f)
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/io/pickle.py", line 175, in <lambda>
+    lambda f: pc.load(f, encoding=encoding, compat=True))
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pandas/compat/pickle_compat.py", line 212, in load
+    return up.load()
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pickle.py", line 1083, in load
+    raise EOFError
+EOFError
+>>> 
