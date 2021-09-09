@@ -176,7 +176,7 @@ def relax_irradiation_b(mesh_delta_coeff, irrad_col, flux_dayside, rplfit, inlis
         print( "run time to evolve in sec = ", run_time)
         return run_time
 
-def evolve_planet(mesh_delta_coeff, initage, orb_sep, maxage, nameEtrack1, escape_model, t_sat, a_x, b_x, a_euv, b_euv, inlist7, relaxirradmodel, evolvedmodel):
+def evolve_planet(mesh_delta_coeff, initage, orb_sep, maxage, nameEtrack1, escape_model, t_sat, a_x, b_x, a_euv, b_euv, pstar, inlist7, relaxirradmodel, evolvedmodel):
         start_time = time.time()
         print( "evolve escaping atmosphere")
         f = open('inlist_7_evolve_mass_loss', 'r')
@@ -203,13 +203,16 @@ def evolve_planet(mesh_delta_coeff, initage, orb_sep, maxage, nameEtrack1, escap
         #k = k.replace("<<escape_betapow>>", str(escape_betapow))
         #k = k.replace("<<escape_sat>>", str(escape_sat))
         print('a_euv:'+str(a_euv))
-        print('tsat:'+str(t_sat ))
+        print('tsat:'+str(int(t_sat))+'d6')
+        #print('new tsat:'+str(round(t_sat,0)))
+        print('new b_euv:'+str(round(b_x*0.58,1)))
         k = k.replace("<<t_sat>>", str(int(t_sat))+'d6')
         k = k.replace("<<a_x>>", str(a_x))
         k = k.replace("<<b_x>>", str(round(b_x,1)))
         k = k.replace("<<a_euv>>", str(round(a_euv,5)))
-        k = k.replace("<<b_euv>>", str(round(b_euv,1)))
+        k = k.replace("<<b_euv>>", str(round(b_euv,1)))#round(b_x*0.575,1)))
         k = k.replace("<<heating_input>>", '"' +  nameEtrack1 + '"')
+        k = k.replace("<<pstar>>", str(pstar).split('.')[0])
         h = open('src/run_star_extras_temp.f', 'w')
         h.write(k)
         h.close()
